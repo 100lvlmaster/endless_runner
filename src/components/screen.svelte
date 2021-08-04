@@ -1,39 +1,26 @@
 <script lang="ts">
 	import Phaser from 'phaser';
-
-	var config = {
+	import { playGame } from './game';
+	const config: Phaser.Types.Core.GameConfig = {
 		type: Phaser.AUTO,
+		backgroundColor: '#FFF1F1',
 		width: window.innerHeight,
-		height: window.innerWidth,
+		height: 400,
+		title: `Endless runner`,
+		parent: 'gameContainer',
+		scale: {
+			parent: 'gameContainer',
+			autoCenter: Phaser.Scale.CENTER_BOTH
+		},
 		physics: {
 			default: 'arcade',
 			arcade: {
 				gravity: { y: 200 }
 			}
 		},
-		scene: {
-			preload: reload,
-			create: create
-		}
+		scene: playGame
 	};
 
-	var game: Phaser.Game = new Phaser.Game(config);
+	const game: Phaser.Game = new Phaser.Game(config);
 	window.focus();
-	function reload() {
-		// this.load.image('morty', '/static/rick_morty_sprite.png');
-		this.load.image('bg', '/landscape.jpg');
-	}
-	function create() {
-		this.add.image(400, 300, 'bg');
-		// let morty_sprite = this.game.add.sprite(300, 200, 'morty');
-		// this.game.physics.enable(morty_sprite, Phaser.AUTO);
-
-		// const logo = this.physics.add.image(200, 10, 'morty');
-
-		// logo.setVelocity(100, 200);
-		// logo.setBounce(1, 1);
-		// logo.setCollideWorldBounds(true);
-
-		// emitter.startFollow(logo);
-	}
 </script>

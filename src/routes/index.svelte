@@ -9,4 +9,5 @@
 	}
 </script>
 
+<svelte:head><title>Endless Runner</title></svelte:head>
 <svelte:component this={screen} />
