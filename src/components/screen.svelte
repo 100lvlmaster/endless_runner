@@ -4,8 +4,8 @@
 	const config: Phaser.Types.Core.GameConfig = {
 		type: Phaser.AUTO,
 		backgroundColor: '#FFF1F1',
-		width: window.innerHeight,
-		height: 400,
+		width: window.innerWidth,
+		height: window.innerHeight,
 		title: `Endless runner`,
 		parent: 'gameContainer',
 		scale: {
