@@ -6,7 +6,9 @@ const gameOptions = {
 	playerGravity: 500,
 	jumpForce: 400,
 	playerStartPosition: 200,
-	jumps: 2
+	jumps: 2,
+	playerStartX: 200,
+	playerStartY: 600
 };
 
 // playGame scene
@@ -27,9 +29,10 @@ export class playGame extends Phaser.Scene {
 	async create(): Promise<void> {
 		// Player
 		playGame.player = this.physics.add
-			.sprite(200, 600, 'player')
+			.sprite(gameOptions.playerStartX, gameOptions.playerStartY, 'player')
 			.setScale(0.3)
-			.setImmovable(true)
+			.setAccelerationX(0)
+			.setVelocityX(0)
 			.setCollideWorldBounds(true);
 
 		// Active platforms
